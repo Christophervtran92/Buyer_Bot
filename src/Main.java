@@ -22,8 +22,8 @@ public class Main {
         WebDriver driver = new ChromeDriver(options);
 
         //Open page to xbox series x
-        //driver.get("https://www.bestbuy.com/site/microsoft-xbox-series-x-1tb-console-black/6428324.p?skuId=6428324");
-        driver.get("https://www.bestbuy.com/site/mario-rabbids-kingdom-battle-nintendo-switch/5909500.p?skuId=5909500");
+        //driver.get("https://www.bestbuy.com/site/microsoft-xbox-series-x-1tb-console-black/6428324.p?skuId=6428324"); //Listing for Xbox Series X, used for testing out of stock
+        driver.get("https://www.bestbuy.com/site/mario-rabbids-kingdom-battle-nintendo-switch/5909500.p?skuId=5909500");//Listing for Mario + Rabbids Kingdom Battle, used for testing in stock
 
         //Keep refreshing as long as it's out of stock
         while(driver.getPageSource().contains("Add to Cart") == false)
@@ -40,8 +40,7 @@ public class Main {
         }
 
         //Click the cart button
-        //element = driver.findElement(By.xpath("/html/body/div[2]/div/div[1]/header/div[1]/div/div[3]/div[1]/div/div/div/div/a/span")); //Listing for Xbox Series X, used for testing out of stock
-        element = driver.findElement(By.xpath("/html/body/div[8]/div/div[1]/div/div/div/div/div[1]/div[3]/a")); //Listing for Mario + Rabbids Kingdom Battle, used for testing in stock
+        element = driver.findElement(By.xpath("/html/body/div[8]/div/div[1]/div/div/div/div/div[1]/div[3]/a"));
         element.click();
 
         //Check for the "checkout" button on the cart page
